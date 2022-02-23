@@ -1,0 +1,12 @@
+*.pdf
+*.xls
+*.xlsx
+*.doc
+*.docx
+*.html
+*.jpeg
+*.png
+*.json
+*.db
+Testing
+__pycache__
