@@ -1,0 +1,49 @@
+
+<!DOCTYPE html> 
+<html> 
+ <head> 
+  <title>File Upload Example</title> 
+ </head> 
+ <body>
+    <h1>File Upload Example</h1>
+    <!-- HTML5 Input Form Elements -->
+    <input id="fileupload" type="file" name="fileupload" />
+    <p></p>
+    <button id="upload-button" onclick="uploadFile()">Upload</button>
+    <p id="message"></p>
+
+  <!-- Ajax JavaScript File Upload Logic -->
+  <script>
+  async function uploadFile() 
+  {
+    let message = document.getElementById("message");
+    message.innerHTML = "Uploading pdf...";
+    let formData = new FormData(); 
+    formData.append("file", fileupload.files[0]);
+    
+    const rawResponse = await fetch('http://localhost:53787/api/movepdfs/upload', 
+    {
+        method: "POST",
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/pdf'
+        },
+        body: formData
+    })
+    .then(result => {
+        console.log('Success:', result);
+        })
+    .catch(error => {
+        console.error('Error:', error);
+        });
+    
+    // const content = await rawResponse.json();
+    // console.log(content);
+
+    message.innerHTML = "Pdf successfully uploaded.</br>Response: ";
+    // alert("Done!");
+  }
+  </script>
+
+ </body> 
+</html>

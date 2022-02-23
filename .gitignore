@@ -3,10 +3,11 @@
 *.xlsx
 *.doc
 *.docx
-*.html
 *.jpeg
 *.png
 *.json
 *.db
 Testing
+input-html
+processed-html
 __pycache__
